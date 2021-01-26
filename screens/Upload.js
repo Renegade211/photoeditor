@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, Alert, Image} from 'react-native';
 import {Button, Input} from 'react-native-elements';
-import {launchImageLibrary} from 'react-native-image-picker';
 import storage from '@react-native-firebase/storage';
 import Modal from 'react-native-modal';
 import ImagePicker from 'react-native-image-crop-picker';
@@ -12,25 +11,6 @@ export default function Upload() {
   const [transferred, setTransferred] = useState(0);
   const [filename, setFilename] = useState('');
   const [isVisible, setVisible] = useState(false);
-
-  /*const selectImage = () => {
-    const options = {
-      maxWidth: 1000,
-      maxHeight: 1000,
-      includeBase64: true,
-    };
-    launchImageLibrary(options, (response) => {
-      if (response.didCancel) {
-        console.log('User cancelled image picker');
-      } else if (response.errorCode) {
-        console.log('ImagePicker Error: ', response.errorMessage);
-      } else {
-        console.log(response.uri);
-        setImage(response.uri);
-      }
-    });
-  };
-  */
 
   const selectImage = () => {
     ImagePicker.openPicker({
